@@ -22,23 +22,23 @@ Components
 
 AppWrite Configuration
     App Name: Aora
-    Bundle Id: com.jsm.eremlin
-    Go to app.json -->  under android ==> "package": "com.jsm.eremlin"
-    Copying the Project id from dashboard 667670fe002f0d446bb2
+    Bundle Id: 
+    Go to app.json -->  under android ==> "package": ""
+    Copying the Project id from dashboard 
     Mkdir lib --> appWrite.js
     code in appWrite.js 
         export const appwriteConfig = {
         endpoint: 'https://cloud.appwrite.io/v1',
-        platform: 'com.jsm.eremlin', 
-        projectId: '667670fe002f0d446bb2'
+        platform: '', 
+        projectId: ''
         }
     Pro Tip: Mulitple Auth used Email/password
     Creating database and adding under projectId 
-        databaseId: '6676730f00166e1c50c5'
+        databaseId: ''
         In database Creating Collections: users 
-            userCollectionId: '6676736e002ee8a743cb'
+            userCollectionId: ''
         In database Creating Collections: videos 
-            videoCollectionId: '667673e2000a0054a37d'
+            videoCollectionId: ''
 
         Under users
             Attributes:
@@ -60,7 +60,7 @@ AppWrite Configuration
     
     Storage --> creating Bucket name files
         copying the id of the files Id and adding to appwrite.js
-        storageId: '66767802002a900862b8'
+        storageId: ''
         giving permissions to all the users of crud operations and maximum file size to be 50Mb
         giving again permission for all the guest of just read operation
         Allowed file Extensions: jpg , png , gif , mp4
