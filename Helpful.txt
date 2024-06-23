@@ -1,0 +1,79 @@
+
+# First page
+    Keyword: Get Started Page
+
+# Bottom Navigation     
+    BN locat: app/(tabs)/_layout.jsx 
+    Keyword: Bottom Navigation --> Tab screen 
+
+Auth screen
+    layout: 
+        L locat: app/(auth)/_layout.jsx
+        Global Layout: app/_layout.jsx (HeaderShown false) 
+           code: <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+    Some Tweaks in Sign in such as adding the input area for Username and some text we will be able to make our sign up page also 
+
+Components
+
+# Custom Button
+    CB locat: components/CustomButton.jsx
+#Form Field
+    FF locat: components/FormField.jsx
+
+AppWrite Configuration
+    App Name: Aora
+    Bundle Id: com.jsm.eremlin
+    Go to app.json -->  under android ==> "package": "com.jsm.eremlin"
+    Copying the Project id from dashboard 667670fe002f0d446bb2
+    Mkdir lib --> appWrite.js
+    code in appWrite.js 
+        export const appwriteConfig = {
+        endpoint: 'https://cloud.appwrite.io/v1',
+        platform: 'com.jsm.eremlin', 
+        projectId: '667670fe002f0d446bb2'
+        }
+    Pro Tip: Mulitple Auth used Email/password
+    Creating database and adding under projectId 
+        databaseId: '6676730f00166e1c50c5'
+        In database Creating Collections: users 
+            userCollectionId: '6676736e002ee8a743cb'
+        In database Creating Collections: videos 
+            videoCollectionId: '667673e2000a0054a37d'
+
+        Under users
+            Attributes:
+                string: username 
+                email: email
+                url: avatar
+                string: accountId
+                Settings ---> Permission --> giving 'any' permission for crud operations
+        
+        Under videos 
+            Attributes:
+                string: title 
+                url: thumbnail
+                string: prompt
+                url: video
+                relationship :after this we created a relationship that is one-way relationship with users nad the attribute key as creator stating that [videos can contain one creator creator can belong to many videos] and on delete setting NULL
+            Settings
+                Settings ---> Permission --> giving 'all users' permission for crud operations
+    
+    Storage --> creating Bucket name files
+        copying the id of the files Id and adding to appwrite.js
+        storageId: '66767802002a900862b8'
+        giving permissions to all the users of crud operations and maximum file size to be 50Mb
+        giving again permission for all the guest of just read operation
+        Allowed file Extensions: jpg , png , gif , mp4
+    Done Completed with appwrite configuration
+AppWrite 
+    sdk: https://github.com/appwrite/sdk-for-react-native
+    Install: npx expo install react-native-appwrite react-native-url-polyfill
+        step:
+            - init sdk
+            - making first request
+            -testing the request from the sign up page by adding createUser(); in the const submit = () => { 
+            -Once tested and checkout that the appwrite is working  well then we will now make function for creating a user , fetching the information and signing in.
+When Building the page Important Syntax
+    # <SafeAreaView className="bg-primary h-full">  ----> scrollview ----> view
+    # 
+    # 
