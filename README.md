@@ -1,5 +1,3 @@
-Sure! Here's a clean and personalized README for your project, based on the information you provided:
-
 ---
 
 # Aora App
